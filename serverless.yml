@@ -1,0 +1,13 @@
+service: docker-zenbot
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  build:
+    handler: build.default
+    environment:
+      TOKEN: ${file(./serverless.env.yml):TOKEN}
+    events:
+      - schedule: rate(1 day)
