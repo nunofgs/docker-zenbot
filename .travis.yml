@@ -1,0 +1,6 @@
+language: bash
+
+script:
+  - docker build -t nunofgs/zenbot .
+  - docker login -u=nunofgs -p="$DOCKER_PASSWORD"
+  - docker push nunofgs/zenbot
